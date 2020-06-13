@@ -75,16 +75,6 @@ const routes = [
     }
   },
   {
-    path: '/Cart',
-    name: 'Cart',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: function () {
-      return import(/* webpackChunkName: "contact" */ '../views/Cart.vue')
-    }
-  },
-  {
     path: '/Contact',
     name: 'Contact',
     // route level code-splitting
@@ -94,6 +84,17 @@ const routes = [
       return import(/* webpackChunkName: "contact" */ '../views/Contact.vue')
     }
   },
+  {
+    path: '/Test',
+    name: 'Test',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: function () {
+      return import(/* webpackChunkName: "contact" */ '../views/Test.vue')
+    }
+  },
+  
 ]
 
 const router = new IonicVueRouter({

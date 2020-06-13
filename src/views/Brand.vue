@@ -1,5 +1,6 @@
 <template>
-    <div>
+  <div class="ion-page">
+    <ion-content class="ion-padding">
         <div class="Brand" v-if=" this.CurrentBrand[0]">
             <h1>{{this.CurrentBrand[0].name}}</h1>
             <img :src="this.CurrentBrand[0].banner"/>
@@ -12,6 +13,7 @@
         <div class="empty" v-if=" !this.CurrentBrand[0]">
             <p> Marque indisponible </p>
         </div>
+    </ion-content>
     </div>
 </template>
 

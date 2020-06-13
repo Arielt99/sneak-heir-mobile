@@ -1,9 +1,11 @@
 <template>
-  <div class="Catalog">
+  <div class="ion-page">
+    <ion-content class="ion-padding">
     <h1>Nos marques</h1>
     <div class="brand-list">
         <BrandCard v-for="brand in brands" :key="brand.id" v-bind:emitedBrand="brand"/>
     </div>
+    </ion-content>
   </div>
 </template>
 

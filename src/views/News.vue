@@ -1,9 +1,11 @@
 <template>
-  <div class="news">
+  <div class="ion-page">
+    <ion-content class="ion-padding">
     <h1>Les actualités trépidantes</h1>
     <div class="news-list" v-if="this.News[0]">
       <NewsCard v-for="News in News" :key="News.id" v-bind:emitedNews="News"/>
     </div>
+    </ion-content>
   </div>
 </template>
 <script>

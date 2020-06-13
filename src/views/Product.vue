@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="ion-page">
+    <ion-content class="ion-padding">
     <div class="Product" v-if="this.CurrentProduct[0]">
       <h1>{{this.CurrentProduct[0].name}}</h1>
       <img :src="this.CurrentProduct[0].principal_image"/>
@@ -9,6 +10,7 @@
     <div class="empty" v-if=" !this.CurrentProduct[0]">
       <p> Produit indisponible </p>
     </div>
+    </ion-content>
   </div>
 </template>
 

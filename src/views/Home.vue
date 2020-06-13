@@ -1,5 +1,6 @@
 <template>
-  <div class="Home">
+  <div class="ion-page">
+    <ion-content class="ion-padding">
     <h1>This is an home page</h1>
     <h2>random product list</h2>
     <div class="product-list" v-if="this.RandomProducts[0]">
@@ -9,6 +10,7 @@
     <div class="news-list" v-if="this.News[0]">
       <NewsCard v-for="News in News.slice(0, 5)" :key="News.id" v-bind:emitedNews="News"/>
     </div>
+    </ion-content>
   </div>
 </template>
 <script>

@@ -1,5 +1,6 @@
 <template>
-  <div class="Contact">
+  <div class="ion-page">
+    <ion-content class="ion-padding">
     <h1> Nous contacter</h1>
     <form>
       <input type="text" v-model="last_name" placeholder="last_name">
@@ -13,6 +14,7 @@
     <p>addresse : 19 Rue Yves Toudic, 75010 Paris</p>
     <p>email : contact@ecole-webstart.com</p>
     <p>telephone : 0142419776</p>
+    </ion-content>
   </div>
 </template>
 <script>

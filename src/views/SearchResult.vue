@@ -1,5 +1,6 @@
 <template>
-<div id="SearchResult">
+  <div class="ion-page">
+    <ion-content class="ion-padding">
     <h1>{{reload}}</h1>
     <div class="product-list">
         <ProductCard v-for="product in ProductsResult" :key="product.id" v-bind:emitedProduct="product"/>
@@ -27,6 +28,7 @@
             </div>
         </div>
 	</nav>	
+    </ion-content>
 </div>
 </template>
 <script>

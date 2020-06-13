@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="ion-page">
+    <ion-content class="ion-padding">
     <div class="News" v-if="this.CurrentNews[0]">
         <h1>{{this.CurrentNews[0].title}}</h1>
         <label>{{this.CurrentNews[0].author}}</label>
@@ -10,6 +11,7 @@
     <div class="empty" v-if=" !this.CurrentNews[0]">
       <p> News indisponible </p>
     </div>
+    </ion-content>
   </div>
 </template>
 

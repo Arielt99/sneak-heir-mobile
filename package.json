@@ -9,6 +9,7 @@
   "dependencies": {
     "@ionic/vue": "0.0.9",
     "axios": "^0.19.2",
+    "ionic": "^5.4.16",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
@@ -20,6 +21,7 @@
     "@vue/cli-plugin-router": "~4.4.0",
     "@vue/cli-plugin-vuex": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
+    "ionicons": "^4.6.3",
     "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [

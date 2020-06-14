@@ -3,13 +3,13 @@
     <ion-menu side="start" content-id="main-content">
       <ion-header>
         <ion-toolbar translucent>
-          <ion-title>Menu</ion-title>
+          <ion-title>Sneak-Heir</ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-content>
         <ion-list>
           <ion-item>
-            <ion-icon name="mail" slot="start"></ion-icon>
+            <ion-icon name="home" slot="start"></ion-icon>
             <ion-menu-toggle>
               <ion-label>
                 <router-link to="/">Home</router-link>
@@ -17,7 +17,7 @@
             </ion-menu-toggle>
           </ion-item>
           <ion-item>
-            <ion-icon name="paper-plane" slot="start"></ion-icon>
+            <ion-icon name="basket" slot="start"></ion-icon>
             <ion-menu-toggle>
               <ion-label>
                 <router-link to="/Brand">Catalogue</router-link>
@@ -25,7 +25,7 @@
             </ion-menu-toggle>
           </ion-item>
           <ion-item>
-            <ion-icon name="heart" slot="start"></ion-icon>
+            <ion-icon name="document" slot="start"></ion-icon>
             <ion-menu-toggle>
               <ion-label>
                 <router-link to="/News">News</router-link>
@@ -33,7 +33,7 @@
             </ion-menu-toggle>
           </ion-item>
           <ion-item>
-            <ion-icon name="archive" slot="start"></ion-icon>
+            <ion-icon name="mail" slot="start"></ion-icon>
             <ion-menu-toggle>
               <ion-label>
                 <router-link to="/Contact">Contact</router-link>
@@ -102,7 +102,11 @@ ion-router-outlet{
 }
 ion-menu a{
   text-decoration: none;
-  color: black;
+  color: rgb(48, 48, 48);
+}
+a{
+  text-decoration: none;
+  color: rgb(48, 48, 48);
 }
 ion-content{
   --background: none;
@@ -115,5 +119,9 @@ ion-content{
 }
 .my-custom-menu {
   --width: 500px;
+}
+ion-menu ion-content{
+  --backgroud:none;
+  background-color: white;
 }
 </style>

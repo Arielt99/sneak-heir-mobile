@@ -100,6 +100,14 @@ export default {
 ion-router-outlet{
   margin-top: 50px;
 }
+ion-menu a{
+  text-decoration: none;
+  color: black;
+}
+ion-content{
+  --background: none;
+  background-color: rgb(241, 241, 241)
+}
 .product-list{
   display: flex;
   flex-direction: row;

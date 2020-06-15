@@ -1,14 +1,21 @@
 <template>
   <div class="ion-page">
     <ion-content class="ion-padding">
-    <h1>This is an home page</h1>
-    <h2>random product list</h2>
+    <h2>Notre selection</h2>
     <div class="product-list" v-if="this.RandomProducts[0]">
-      <ProductCard v-for="product in RandomProducts" :key="product.id" v-bind:emitedProduct="product"/>
+      <ion-slides pager="true">
+        <ion-slide v-for="product in RandomProducts" :key="product.id">
+          <ProductCard v-bind:emitedProduct="product"/>
+        </ion-slide>
+      </ion-slides>
     </div>
-    <h2>last article</h2>
+    <h2>Les derniers articles</h2>
     <div class="news-list" v-if="this.News[0]">
-      <NewsCard v-for="News in News.slice(0, 5)" :key="News.id" v-bind:emitedNews="News"/>
+      <ion-slides ref="slider" pager="true">
+        <ion-slide v-for="News in News.slice(0, 5)" :key="News.id" >
+           <NewsCard v-bind:emitedNews="News"/>
+        </ion-slide>
+      </ion-slides>
     </div>
     </ion-content>
   </div>
@@ -19,6 +26,13 @@ import NewsCard from "../components/NewsCard";
 export default {
     data (){
       return {
+        slideOpts: {
+          centeredSlides: true,
+          spaceBetween: 20,
+          slidesPerView: 1,
+          loop: true,
+          autoplay: true,
+        }
       }
     },
     components:{
@@ -33,6 +47,13 @@ export default {
         return this.$store.getters.EveryNews;
       },
     },
+    async updated() {
+      const slides = await this.$refs.slider;
+      console.log(slides)
+      this.$nextTick(() => {
+        slides.options = this.slideOpts;
+      });
+    },
     methods:{
       getRandomProductList(){
         this.$store.dispatch('getRandomProductList');
@@ -45,3 +66,6 @@ export default {
     }
 }
 </script>
+<style>
+
+</style>

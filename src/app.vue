@@ -108,6 +108,10 @@ a{
   text-decoration: none;
   color: rgb(48, 48, 48);
 }
+ion-app{
+  --background: none;
+  background-color: rgb(241, 241, 241)
+}
 ion-content{
   --background: none;
   background-color: rgb(241, 241, 241)

@@ -1,9 +1,9 @@
 <template>
   <div class="ion-page">
-    <ion-content class="ion-padding">
-        <div class="Brand" v-if=" this.CurrentBrand[0]">
+    <ion-content class="ion-no-padding">
+        <div class="SpecBrand" v-if=" this.CurrentBrand[0]">
+            <ion-img :src="this.CurrentBrand[0].banner" :alt="this.CurrentBrand[0].name"/>
             <h1>{{this.CurrentBrand[0].name}}</h1>
-            <img :src="this.CurrentBrand[0].banner"/>
             <p>{{this.CurrentBrand[0].description}}</p>
             <h2>Les produits</h2>
             <div class="product-list">
@@ -44,3 +44,10 @@ export default {
     }
 }
 </script>
+<style>
+.SpecBrand ion-img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+</style>

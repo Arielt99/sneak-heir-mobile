@@ -1,17 +1,31 @@
 <template>
   <div class="ion-page" >
     <ion-content class="ion-no-padding">
-    <div class="contactUs">
-      <h2>Nous envoyer un message</h2>
+    <ion-card class="contactUs">
+      <ion-card-title>Nous envoyer un message</ion-card-title>
       <form>
-        <ion-input type="text" @input="setLastName($event.target.value)" id="last_name" value="" placeholder="last_name"></ion-input>
-        <ion-input type="text" @input="setFirstName($event.target.value)" id="first_name" value="" placeholder="first_name"></ion-input>
+        <ion-row>
+          <ion-collumn>
+            <ion-label>Nom</ion-label>
+            <ion-input type="text" @input="setLastName($event.target.value)" id="last_name" value="" placeholder="Entrez votre nom"></ion-input>
+          </ion-collumn>
+          <ion-collumn>
+            <ion-label>Prénom</ion-label>
+            <ion-input type="text" @input="setFirstName($event.target.value)" id="first_name" value="" placeholder="Entrez votre prénom"></ion-input>
+          </ion-collumn>
+        </ion-row>
+        <ion-label>Email</ion-label>
         <ion-input type="text" @input="setEmail($event.target.value)" id="Email" value="" placeholder="Email"></ion-input>
-        <ion-input type="text" @input="setSubject($event.target.value)" id="subject" value="" placeholder="subject"></ion-input>
-        <ion-input type="text" @input="setMessage($event.target.value)" id="message" value="" placeholder="message"></ion-input>
-        <ion-button type="button" @click="send()">envoyer</ion-button>
+        <ion-label>Objet</ion-label>
+        <ion-input type="text" @input="setSubject($event.target.value)" id="subject" value="" placeholder="Objet"></ion-input>
+        <ion-label>Message</ion-label>
+        <ion-textarea @input="setMessage($event.target.value)" id="message" value="" placeholder="Entrez votre message"></ion-textarea>
+        <ion-collumn class="form-info">
+          <ion-button type="button" color="button" @click="send()">envoyer</ion-button>
+          <ion-label>Tous les champs sont obligatoires</ion-label>
+        </ion-collumn>
       </form>
-    </div>
+    </ion-card>
     <ion-card class="information">
       <ion-card-title>Nos contacts</ion-card-title>
       <ion-card-content>
@@ -32,7 +46,7 @@
         </ion-item>
       </ion-card-content>
     </ion-card>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1312.1762293794682!2d2.3636126082747095!3d48.87055714482218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e0989542143%3A0x9384848c375ced98!2s%C3%89cole%20Webstart!5e0!3m2!1sfr!2sfr!4v1591205795725!5m2!1sfr!2sfr" width="800" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1312.1762293794682!2d2.3636126082747095!3d48.87055714482218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e0989542143%3A0x9384848c375ced98!2s%C3%89cole%20Webstart!5e0!3m2!1sfr!2sfr!4v1591205795725!5m2!1sfr!2sfr" width="100%" height="200px" frameborder="0" style="border:0; margin : 20px 0px;" allowfullscreen="true" aria-hidden="false" tabindex="0"></iframe>
     </ion-content>
   </div>
 </template>
@@ -101,11 +115,49 @@ export default {
 <style>
 .contactUs{
   background-color: rgb(255, 255, 255);
+  margin: 0;
   margin-top: 20px;
   padding: 15px;
 }
-h2{
-  margin: 0px;
+.contactUs ion-card-title{
+  padding: 15px 0px 20px 0px;
+  color: rgb(48, 48, 48);
+  font-size: 30px;
+}
+.contactUs ion-input{
+  border: 1px solid #afafaf ;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.contactUs ion-textarea textarea{
+  border: 1px solid #afafaf ;
+  border-radius: 5px;
+  height: 100px;
+}
+.contactUs ion-textarea{
+  border: 1px solid #afafaf ;
+  border-radius: 5px;
+  height: 100px;
+  margin: 0;
+}
+.contactUs form ion-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+.contactUs ion-button{
+  margin-top: 10px;
+}
+.form-info{
+  display: flex;
+  flex-direction: column;
+}
+.form-info ion-button{
+  width: 30% ;
+}
+.form-info ion-label{
+  font-size: x-small;
+  margin-top: 5px;
 }
 .information{
   background-color: rgb(175, 175, 175);
@@ -119,7 +171,7 @@ h2{
   border-radius: 0px ;
 }
 .information ion-card-title{
-  padding: 15px 0px 20px 0px;
+  padding: 0px 0px 20px 0px;
   color: rgb(255, 255, 255);
   font-size: 30px;
 }
@@ -134,12 +186,22 @@ h2{
 .information p{
   margin: 0px;
   padding-left: 5px;
+  font-size: 17px;
 }
-ion-item{
-  --background:none;
-  color: rgb(255, 255, 255);
+.information ion-row{
   display: flex;
   justify-content: center !important;
   align-items: center;
+}
+.information ion-item{
+  --background:none;
+  color: rgb(255, 255, 255);
+  height: 25px;
+  display: flex;
+  justify-content: center !important;
+  align-items: center;
+}
+.ion-color-button {
+  --ion-color-base: #afafaf;
 }
 </style>

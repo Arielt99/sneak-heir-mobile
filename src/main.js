@@ -6,6 +6,8 @@ import store from './store'
 import Ionic from '@ionic/vue'
 import Vuelidate from 'vuelidate'
 import '@ionic/core/css/ionic.bundle.css'
+import moment from 'moment'
+Vue.prototype.$moment = moment
 Vue.use(Ionic);
 Vue.use(Vuelidate)
 

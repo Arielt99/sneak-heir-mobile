@@ -32,7 +32,7 @@ export default {
     position: relative;
     padding: 0 !important;
 }
-ion-img{
+#news ion-img{
     display: flex;
     width: 100%;
     height: auto;

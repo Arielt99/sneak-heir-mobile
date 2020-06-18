@@ -116,16 +116,8 @@ ion-content{
   --background: none;
   background-color: rgb(241, 241, 241)
 }
-.product-list{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-.my-custom-menu {
-  --width: 500px;
-}
 ion-menu ion-content{
   --backgroud:none;
-  background-color: white;
+  background-color: white !important;
 }
 </style>

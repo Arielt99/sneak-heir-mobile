@@ -31,6 +31,7 @@ export default {
 
 <style>
 .productCard{
+    background-color: rgb(255, 255, 255);
     border: 1px solid rgb(241, 241, 241);
     border-radius: 10px;
     width: 300px;

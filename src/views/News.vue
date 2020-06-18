@@ -3,9 +3,9 @@
     <ion-content class="ion-no-padding">
       <ion-card class="NewsList">
         <ion-card-title>Les actualités trépidantes</ion-card-title>
-        <ion-card-content v-if="this.News[0]">
+        <div class="News" v-if="this.News[0]">
           <NewsCard v-for="News in News" :key="News.id" v-bind:emitedNews="News"/>
-        </ion-card-content>
+        </div>
       </ion-card>
     </ion-content>
   </div>
@@ -41,5 +41,13 @@ export default {
   padding: 0px 0px 20px 15px;
   color: rgb(48, 48, 48);
   font-size: 30px;
+}
+.News{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.News > *{
+  margin: 20px 0px;
 }
 </style>

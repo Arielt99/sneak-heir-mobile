@@ -13,9 +13,9 @@
       </ion-card>
       <ion-card class="LastNews">
         <ion-card-title>Les derniers articles</ion-card-title>
-        <div class="news-list" v-if="this.News[0]">
+        <div v-if="this.News[0]">
           <ion-slides ref="sliderNews" pager="true">
-            <ion-slide class="slide" v-for="News in News.slice(0, 5)" :key="News.id" >
+            <ion-slide v-for="News in News.slice(0, 5)" :key="News.id" >
               <NewsCard v-bind:emitedNews="News"/>
             </ion-slide>
           </ion-slides>

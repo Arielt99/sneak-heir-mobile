@@ -26,6 +26,7 @@ export default {
 </script>
 <style>
 #brand{
+    border-radius: 10px;
     background-color: rgb(255, 255, 255);
     width: 100%;
     height: auto;

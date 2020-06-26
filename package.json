@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "start": "node server.js"
   },
   "dependencies": {
     "@ionic/vue": "0.0.9",
     "axios": "^0.19.2",
+    "express": "^4.17.1",
     "ionic": "^5.4.16",
     "moment": "^2.26.0",
     "register-service-worker": "^1.7.1",

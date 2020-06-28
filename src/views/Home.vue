@@ -58,7 +58,7 @@ export default {
         return this.$store.getters.EveryNews
       },
     },
-    async updated() {
+    async updated(){
       const slidesNews = await this.$refs.sliderNews
       const slidesProducts = await this.$refs.sliderProducts
       this.$nextTick(async() => {

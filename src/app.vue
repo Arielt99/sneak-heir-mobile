@@ -49,13 +49,14 @@
           <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
           </ion-buttons>
-          <ion-title>Sneak-Heir</ion-title>
+          <ion-title><input type="text" v-model="searchContent" v-on:keyup.enter="search()" placeholder="barre de recherche"></ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-body>
       <ion-vue-router id="main-content"/>
       </ion-body>
     </div>
+    <div v-if="loading" class="loading"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
   </ion-app>
 </template>
 <script>
@@ -66,12 +67,13 @@ export default {
       }
     },
     methods:{
-       closeMenu() {
-   this.menuCtrl.close();
- },
+      closeMenu() {
+       this.menuCtrl.close();
+      },
       search(){
-        this.$router.push('/Result/'+this.searchContent)
-        this.searchContent=null
+          if(this.searchContent != this.$route.params.search && this.searchContent.length != 0){
+          this.$router.push('/Result/'+this.searchContent)
+          }
       },
       getBrandList(){
           this.$store.dispatch('getBrandList');
@@ -82,6 +84,11 @@ export default {
       getNewsList(){
         this.$store.dispatch('getNewsList');
       },
+    },
+    computed:{
+        loading(){
+            return this.$store.getters.loading
+        },
     },
     created: function(){
         if(this.$store.getters.EveryBrands.length == 0){
@@ -119,5 +126,51 @@ ion-content{
 ion-menu ion-content{
   --backgroud:none;
   background-color: white !important;
+}
+.loading {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 </style>

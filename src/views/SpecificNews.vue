@@ -6,10 +6,13 @@
       <ion-card-header>
         <ion-img :src="this.CurrentNews[0].image" :alt="this.CurrentNews[0].title"/>
       </ion-card-header>
-        <h1>{{this.CurrentNews[0].title}}</h1>
-        <ion-label>{{this.CurrentNews[0].author}}</ion-label><br>
-        <ion-label>{{configDateTime(this.CurrentNews[0].posted_at)}}</ion-label>
-        <p>{{this.CurrentNews[0].content}}</p>
+        <div class="NewsData">
+          <h1>{{this.CurrentNews[0].title}}</h1>
+          <ion-label>{{this.CurrentNews[0].author}}</ion-label><br>
+          <ion-label>{{configDateTime(this.CurrentNews[0].posted_at)}}</ion-label>
+          <p>{{this.CurrentNews[0].content}}</p>
+          <p>{{this.CurrentNews[0].resume}}</p>
+        </div>
       </ion-card>
     </div>
     <div class="empty" v-if=" !this.CurrentNews[0]">
@@ -27,7 +30,7 @@ export default {
     },
     methods:{
       configDateTime(date) {
-        return this.$moment(date).startOf('second').subtract(2, 'hours').locale('fr-FR').fromNow()
+        return this.$moment(date).startOf('second').locale('fr-FR').fromNow()
       },
     },
     computed:{
@@ -57,4 +60,7 @@ export default {
 .article ion-card{
   margin: 0;
   }
+.NewsData{
+  padding-left: 10px ;
+}
 </style>

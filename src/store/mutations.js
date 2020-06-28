@@ -17,7 +17,7 @@ export const getProductList = (state, productList)=>{
     for (let i=0; i<productList.length; i++){
         state.EveryProducts.push({
             id : productList[i].id,
-            principal_image : productList[i].principal_image,
+            principal_images : productList[i].principal_images,
             name : productList[i].name,
             price : productList[i].price,
             brand_id : productList[i].brand_id,
@@ -45,7 +45,7 @@ export const getBrandProductList = (state, BrandProductList)=>{
     for (let i=0; i<BrandProductList.length; i++){
         state.productList.push({
             id : BrandProductList[i].id,
-            principal_image : BrandProductList[i].principal_image,
+            principal_images : BrandProductList[i].principal_images,
             name : BrandProductList[i].name,
             price : BrandProductList[i].price,
             brand_id : BrandProductList[i].brand_id,
@@ -55,13 +55,7 @@ export const getBrandProductList = (state, BrandProductList)=>{
 //GetedProduct = response.data from getProduct in action
 export const getProduct = (state, GetedProduct)=>{
     state.product =[]
-    state.product.push({
-        id : GetedProduct.id,
-        principal_image : GetedProduct.principal_image,
-        name : GetedProduct.name,
-        price : GetedProduct.price,
-        brand_id : GetedProduct.brand_id,
-    })
+    state.product = GetedProduct
 }
 //RandomProductList = response.data from getRandomProductList in action
 export const getRandomProductList = (state, RandomProductList)=>{
@@ -69,7 +63,7 @@ export const getRandomProductList = (state, RandomProductList)=>{
     for (let i=0; i<RandomProductList.length; i++){
         state.RandomProducts.push({
             id : RandomProductList[i].id,
-            principal_image : RandomProductList[i].principal_image,
+            principal_images : RandomProductList[i].principal_images,
             name : RandomProductList[i].name,
             price : RandomProductList[i].price,
             brand_id : RandomProductList[i].brand_id,
@@ -82,7 +76,7 @@ export const searchResponse = (state, search)=>{
     for (let i=0; i<search.length; i++){
         state.searchResponse.push({
             id : search[i].id,
-            principal_image : search[i].principal_image,
+            principal_images : search[i].principal_images,
             name : search[i].name,
             price : search[i].price,
             brand_id : search[i].brand_id,
@@ -91,4 +85,8 @@ export const searchResponse = (state, search)=>{
 }
 
 
+//loading
+export const loading = (state, loading )=>{
+    state.loading = loading
+}
 

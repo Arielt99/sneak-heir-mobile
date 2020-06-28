@@ -2,86 +2,107 @@ import axios from "axios";
 
 //getting all the brands
 export const getBrandList = ({ commit })=>{
-    axios.get('http://127.0.0.1:8000/api/brands')
+    commit("loading", true)
+    axios.get(process.env.VUE_APP_URL+'/api/brands')
     .then( response => {
         //console.log(response.data)
         commit("getBrandList", response.data)
+        commit("loading", false)
     })
     .catch( error =>  {
         //console.log(error.response.data)
-        alert("erreur du serveur, réessayez plus tard")
+        //alert("erreur du serveur, réessayez plus tard")
+        commit("loading", false)
     })
 }
 //getting all the Products
 export const getProductList = ({ commit })=>{
-    axios.get('http://127.0.0.1:8000/api/products')
+    commit("loading", true)
+    axios.get(process.env.VUE_APP_URL+'/api/products')
     .then( response => {
         //console.log(response.data)
         commit("getProductList", response.data)
+        commit("loading", false)
     })
     .catch( error =>  {
         //console.log(error.response.data)
-        alert("erreur du serveur, réessayez plus tard")
+        //alert("erreur du serveur, réessayez plus tard")
+        commit("loading", false)
     })
 }
 //getting all the News
 export const getNewsList = ({ commit })=>{
-    axios.get('http://127.0.0.1:8000/api/news')
+    commit("loading", true)
+    axios.get(process.env.VUE_APP_URL+'/api/news')
     .then( response => {
         //console.log(response.data)
         commit("getNewsList", response.data)
+        commit("loading", false)
     })
     .catch( error =>  {
         //console.log(error.response.data)
-        alert("erreur du serveur, réessayez plus tard")
+        //("erreur du serveur, réessayez plus tard")
+        commit("loading", false)
     })
 }
 //getting all the Product of a brand
 export const getBrandProductList = ({ commit },{id})=>{
-    axios.get('http://127.0.0.1:8000/api/brands/'+id+'/products')
+    commit("loading", true)
+    axios.get(process.env.VUE_APP_URL+'/api/brands/'+id+'/products')
     .then( response => {
         //console.log(response.data)
         commit("getBrandProductList", response.data)
+        commit("loading", false)
     })
     .catch( error =>  {
         //console.log(error.response.data)
         //alert("erreur du serveur, réessayez plus tard")
+        commit("loading", false)
     })
 }
 //getting a specific product
 export const getProduct = ({ commit },{id})=>{
-    axios.get('http://127.0.0.1:8000/api/products/'+id)
+    commit("loading", true)
+    axios.get(process.env.VUE_APP_URL+'/api/products/'+id)
     .then( response => {
         //console.log(response.data)
         commit("getProduct", response.data)
+        commit("loading", false)
     })
     .catch( error =>  {
         //console.log(error.response.data)
         //alert("erreur du serveur, réessayez plus tard")
+        commit("loading", false)
     })
 }
 //getting a list of random product
 export const getRandomProductList = ({ commit })=>{
-    axios.get('http://127.0.0.1:8000/api/products?sort=random&max=10')
+    commit("loading", true)
+    axios.get(process.env.VUE_APP_URL+'/api/products?sort=random&max=10')
     .then( response => {
         //console.log(response.data)
         commit("getRandomProductList", response.data)
+        commit("loading", false)
     })
     .catch( error =>  {
         //console.log(error.response.data)
         alert("erreur du serveur, réessayez plus tard")
+        commit("loading", false)
     })
 }
-//getting a specific product
+//getting a specific product via research
 export const search = ({ commit },{searchContent})=>{
-    axios.get('http://127.0.0.1:8000/api/products?search='+searchContent)
+    commit("loading", true)
+    axios.get(process.env.VUE_APP_URL+'/api/products?search='+searchContent)
     .then( response => {
-        console.log(response.data)
+        //console.log(response.data)
         commit("searchResponse", response.data)
+        commit("loading", false)
     })
     .catch( error =>  {
         //console.log(error.response.data)
         //alert("erreur du serveur, réessayez plus tard")
+        commit("loading", false)
     })
 }
 
@@ -89,13 +110,16 @@ export const search = ({ commit },{searchContent})=>{
 
 //sending an e-email
 export const sentMailContact = ({ commit }, {last_name, first_name, email, subject, message})=>{
-    axios.post('http://127.0.0.1:8000/api/contact', {last_name, first_name, email, subject, message})
+    commit("loading", true)
+    axios.post(process.env.VUE_APP_URL+'/api/contact', {last_name, first_name, email, subject, message})
     .then( response => {
         //console.log(response.data)
         alert("E-mail envoyé avec succès, nous vous repondrons dans les plus bref délais")
+        commit("loading", false)
     })
     .catch( error =>  {
         //console.log(error.response.data)
         alert("erreur du serveur, réessayez plus tard")
+        commit("loading", false)
     })
 }

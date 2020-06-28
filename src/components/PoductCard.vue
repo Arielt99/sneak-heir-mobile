@@ -2,7 +2,7 @@
     <RouterLink :to="'/Brand/'+emitedProduct.brand_id+'/Product/'+emitedProduct.id">
         <ion-card class="productCard">
             <ion-card-header class="card-header">
-                <img :src="emitedProduct.principal_image"/>
+                <img :src="emitedProduct.principal_images"/>
             </ion-card-header>
             <ion-card-content class="ion-text-start" v-if=" this.CurrentBrand[0]">
                 <h2>{{emitedProduct.name}}</h2>
@@ -35,7 +35,7 @@ export default {
     border: 1px solid rgb(241, 241, 241);
     border-radius: 10px;
     width: 300px;
-    height: 330px;
+    height: 330px !important;
 }
 .productCard ion-card-header{
     padding: 0;

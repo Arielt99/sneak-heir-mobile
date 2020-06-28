@@ -19,3 +19,7 @@ export const RandomProducts = state =>{
 export const searchResponse = state =>{
     return state.searchResponse;
 };
+export const loading = state =>{
+    return state.loading;
+};
+
